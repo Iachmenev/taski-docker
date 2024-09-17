@@ -1,3 +1,5 @@
+"""Views configuration for the Task model."""
+
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
@@ -6,10 +8,13 @@ from .serializers import TaskSerializer
 
 
 class TaskView(viewsets.ModelViewSet):
+    """Configuration for the API views."""
+
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
 
     def destroy(self, *args, **kwargs):
+        """Destroy mrthod for TaskView."""
         serializer = self.get_serializer(self.get_object())
         super().destroy(*args, **kwargs)
         return Response(serializer.data, status=status.HTTP_200_OK)

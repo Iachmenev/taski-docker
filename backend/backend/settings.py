@@ -1,6 +1,6 @@
-from pathlib import Path
+"""Django settings for the backend project."""
 import os
-
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
